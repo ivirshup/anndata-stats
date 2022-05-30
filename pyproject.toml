@@ -45,10 +45,11 @@ test = [
 ]
 
 [tool.coverage.run]
-source = ["anndata_stats"]
+# source = ["anndata_stats"]
 omit = [
     "**/test_*.py",
 ]
+
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
