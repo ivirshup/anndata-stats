@@ -57,7 +57,7 @@ extensions = [
 ]
 
 autosummary_generate = True
-autodoc_member_order = "bysource"
+autodoc_member_order = "groupwise"
 default_role = "literal"
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
