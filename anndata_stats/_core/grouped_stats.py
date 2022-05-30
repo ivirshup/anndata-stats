@@ -82,8 +82,8 @@ class GroupBy:
     then scores are computed for each pair using the statistics. Runtime is dominated by the
     former, so is effectively independent of the number of pairs.
 
-    Params
-    ------
+    Parameters
+    ----------
     adata
         The AnnData object.
     key
@@ -124,9 +124,7 @@ class GroupBy:
         """
         Count the number of observations in each group.
 
-        Returns
-        -------
-            Series of counts indexed by key.
+        Returns series of counts indexed by key.
         """
         keys, key_index, _, _ = self._extract_indices()
         count_ = np.bincount(key_index)
@@ -140,9 +138,7 @@ class GroupBy:
         """
         Compute the sum per feature per group of observations.
 
-        Returns
-        -------
-        DataFrame of sums indexed by key with columns from adata.
+        Returns dataframe of sums indexed by key with columns from adata.
         """
         A, keys = self.sparse_aggregator(normalize=False)
         X = self.adata.X
@@ -156,9 +152,7 @@ class GroupBy:
         """
         Compute the mean per feature per group of observations.
 
-        Returns
-        -------
-            DataFrame of means indexed by key with columns from adata.
+        Returns dataframe of means indexed by key with columns from adata.
         """
         A, keys = self.sparse_aggregator(normalize=True)
         X = self.adata.X
@@ -179,9 +173,8 @@ class GroupBy:
         dof
             Degrees of freedom for variance.
 
-        Returns
-        -------
-            DataFrame of variances indexed by key with columns from adata.
+
+        Returns dataframe of variances indexed by key with columns from adata.
         """
         return self.count_mean_var(dof).var
 
@@ -200,9 +193,8 @@ class GroupBy:
         dof
             Degrees of freedom for variance.
 
-        Returns
-        -------
-            Dictionary with keys (count, mean, var) and values the corresponding Series and DataFrames.
+
+        Returns dictionary with keys (count, mean, var) and values the corresponding Series and DataFrames.
         """
         assert dof >= 0
         A, keys = self.sparse_aggregator(normalize=True)
