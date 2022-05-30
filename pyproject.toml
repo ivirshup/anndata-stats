@@ -54,7 +54,6 @@ omit = [
 testpaths = ["tests"]
 xfail_strict = true
 addopts = [
-    "-Werror",  # if 3rd party libs raise DeprecationWarnings, just use filterwarnings below
     "--import-mode=importlib",  # allow using test files with same name
 ]
 filterwarnings = [
@@ -68,7 +67,7 @@ profile = "black"
 skip_glob = ["docs/*"]
 
 [tool.black]
-line-length = 120
+line-length = 88
 target-version = ['py38']
 include = '\.pyi?$'
 exclude = '''

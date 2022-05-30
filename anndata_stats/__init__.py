@@ -1,7 +1,7 @@
 from importlib.metadata import version
 
-from . import pl, pp, tl
+from ._core.grouped_stats import GroupBy
 
-__all__ = ["pl", "pp", "tl"]
+__all__ = ["GroupBy"]
 
 __version__ = version("anndata-stats")
