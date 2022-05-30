@@ -46,7 +46,8 @@ jobs:
                   python -m pip install --upgrade pip wheel
             - name: Install dependencies
               run: |
-                  pip install -e ".[dev,test]"
+                  pip install ".[dev,test]"
+              #   pip install -e ".[dev,test]"
             - name: Test
               env:
                   MPLBACKEND: agg
